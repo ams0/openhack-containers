@@ -63,3 +63,4 @@ docker run -d -p 8080:80 --name tripviewer -e "USERPROFILE_API_ENDPOINT=http://$
 ## Testing
 
 Open "http://localhost:8080/" in the browser. While running the docker container, header and documentation links will be broken as they rely on the Trip Insights APIs to be running and reachable.
+ 
