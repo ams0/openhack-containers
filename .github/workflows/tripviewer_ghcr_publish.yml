@@ -1,4 +1,4 @@
-name: Publish container to GitHub Registry
+name: Publish tripviewer container to GitHub Registry
 
 on:
   push:
@@ -12,14 +12,14 @@ env:
 jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
-  push:
+  ghr_push:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build image
+      - name: Build tripviewer image
         run: docker build src/tripviewer/ --file dockerfiles/Dockerfile_1 --tag $IMAGE_NAME
 
       - name: Log into GitHub Container Registry

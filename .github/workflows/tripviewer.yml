@@ -1,10 +1,10 @@
-name: build_tripviewer
+name: Publish tripviewer container to Azure Container Registry
 on:
   push:
     paths:
       - "src/tripviewer/**"
 jobs:
-  build:
+  acr_build:
     runs-on: ubuntu-latest
     steps:
       - name: ACR build

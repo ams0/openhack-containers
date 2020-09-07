@@ -1,10 +1,10 @@
-name: build_userprofile
+name: Publish userprofile container to Azure Container Registry
 on:
   push:
     paths:
       - "src/userprofile/**"
 jobs:
-  build:
+  acr_build:
     runs-on: ubuntu-latest
     steps:
       - name: ACR build

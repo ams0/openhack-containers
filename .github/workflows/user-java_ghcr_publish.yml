@@ -1,4 +1,4 @@
-name: Publish container to GitHub Registry
+name: Publish user-java container to GitHub Registry
 
 on:
   push:
@@ -12,21 +12,21 @@ env:
 jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
-  push:
+  ghr_push:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build image
+      - name: Build user-java image
         run: docker build src/user-java/ --file dockerfiles/Dockerfile_0 --tag $IMAGE_NAME
 
       - name: Log into GitHub Container Registry
       # TODO: Create a PAT with `read:packages` and `write:packages` scopes and save it as an Actions secret `CR_PAT`
         run: echo "${{ secrets.CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Push image to GitHub Container Registry
+      - name: Push user-java image to GitHub Container Registry
         run: |
           IMAGE_ID=ghcr.io/${{ github.repository }}/$IMAGE_NAME
 
