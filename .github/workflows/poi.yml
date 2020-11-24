@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: ACR build
         id: acr
-        uses: ams0/acr-task-github-action@master
+        uses: Azure/acr-build@master
         with:
           service_principal: ${{ secrets.service_principal }}
           service_principal_password: ${{ secrets.service_principal_password }}
