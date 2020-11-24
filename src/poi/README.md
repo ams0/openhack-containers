@@ -117,3 +117,5 @@ Get healthcheck status
 ```bash
 curl -i -X GET 'http://localhost:8080/api/poi/healthcheck' 
 ```
+
+
